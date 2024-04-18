@@ -1,6 +1,6 @@
 <script>
 	import Header from './Header.svelte';
-	import './styles.css';
+	// import './styles.css';
 </script>
 
 <div class="app">
@@ -11,7 +11,7 @@
 	</main>
 
 	<footer>
-		<p>visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to learn SvelteKit</p>
+		<p>All rights reserved &copy; BINIG.NET 2024</p>
 	</footer>
 </div>
 
@@ -19,7 +19,7 @@
 	.app {
 		display: flex;
 		flex-direction: column;
-		min-height: 100vh;
+		min-height: 97.5vh;
 	}
 
 	main {
@@ -38,7 +38,7 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		padding: 12px;
+		padding: 0px 12px;
 	}
 
 	footer a {

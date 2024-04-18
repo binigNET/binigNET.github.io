@@ -7,32 +7,32 @@
 
 <header>
 	<div class="corner">
-		<a href="https://kit.svelte.dev">
+		<!-- <a href="https://kit.svelte.dev">
 			<img src={logo} alt="SvelteKit" />
-		</a>
+		</a> -->
 	</div>
 
 	<nav>
-		<svg viewBox="0 0 2 3" aria-hidden="true">
-			<path d="M0,0 L1,2 C1.5,3 1.5,3 2,3 L2,0 Z" />
-		</svg>
 		<ul>
 			<li aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
-				<a href="{base}/">Home</a>
+				<a href="{base}/">binig.NET</a>
+			</li>
+			<li aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
+				<a href="{base}/download">Download</a>
+			</li>
+			<li aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
+				<a href="{base}/installation">Installation</a>
 			</li>
 			<li aria-current={$page.url.pathname === '/about' ? 'page' : undefined}>
 				<a href="{base}/about">About</a>
 			</li>
 		</ul>
-		<svg viewBox="0 0 2 3" aria-hidden="true">
-			<path d="M0,0 L0,3 C0.5,3 0.5,3 1,2 L2,0 Z" />
-		</svg>
 	</nav>
 
 	<div class="corner">
-		<a href="https://github.com/sveltejs/kit">
+		<!-- <a href="https://github.com/sveltejs/kit">
 			<img src={github} alt="GitHub" />
-		</a>
+		</a> -->
 	</div>
 </header>
 
