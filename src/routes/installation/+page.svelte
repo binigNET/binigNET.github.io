@@ -33,8 +33,4 @@
 
 	<h2>If you have a copy of <strong>Warcraft III</strong> in your computer</h2>
 	
-	<p>
-		The <a href="/sverdle">Sverdle</a> page illustrates SvelteKit's data loading and form handling. Try
-		using it with JavaScript disabled!
-	</p>
 </div>
