@@ -1,36 +1,67 @@
+<script lang="ts">
+	import Card from '$lib/components/ui/Card.svelte';
+	import CardHeader from '$lib/components/ui/CardHeader.svelte';
+	import CardTitle from '$lib/components/ui/CardTitle.svelte';
+	import CardContent from '$lib/components/ui/CardContent.svelte';
+	import CardFooter from '$lib/components/ui/CardFooter.svelte';
+	import Badge from '$lib/components/ui/Badge.svelte';
+	import Button from '$lib/components/ui/Button.svelte';
+</script>
+
 <svelte:head>
-	<title>About</title>
-	<meta name="description" content="About this app" />
+	<title>Installation</title>
+	<meta
+		name="description"
+		content="How to install and connect to the Binig.NET Warcraft III server"
+	/>
 </svelte:head>
 
-<div class="text-column">
-	<h1>Installation</h1>
+<div class="mx-auto flex max-w-2xl flex-col gap-6">
+	<h1 class="font-fantasy text-3xl font-bold text-primary">Installation</h1>
 
-	<p>To play warcraft III on binig.net server you need the following:</p>
-	<ul>
-		<li>A Copy of <strong>Warcraft III: The Frozen Throne (ver 1.26a)</strong></li>
-		<li>Warcraft III Loader</li>
-		<li>Properly Configured <strong>BNET Gateway</strong></li>
-	</ul>
+	<Card>
+		<CardHeader>
+			<CardTitle>Requirements</CardTitle>
+		</CardHeader>
+		<CardContent class="flex flex-wrap gap-2">
+			<Badge>Warcraft III: The Frozen Throne (v1.26a)</Badge>
+			<Badge>Warcraft III Loader</Badge>
+			<Badge>Configured BNET Gateway</Badge>
+		</CardContent>
+	</Card>
 
-	<h2>If you dont have a copy of <strong>Warcraft III</strong> in your computer</h2>
-
-	<p>
-		If you dont have a copy of Warcraft III: The Frozen Throne (ver 1.26a) on your computer, you can
-		download the pre-packaged client with <strong>Warcraft III Loader</strong> and
-		<strong>AHT Hotkeys</strong>
-	</p>
-
-	<ul>
-		<li>
-			Download Link: <a
-				target="_blank"
+	<Card>
+		<CardHeader>
+			<CardTitle>If you don't have Warcraft III installed</CardTitle>
+		</CardHeader>
+		<CardContent class="text-sm text-foreground">
+			<p>
+				Download the pre-packaged client below, which includes <strong>Warcraft III Loader</strong>
+				and <strong>AHT Hotkeys</strong>.
+			</p>
+		</CardContent>
+		<CardFooter>
+			<Button
 				href="https://drive.google.com/file/d/1pK0bnm20Y-pF8PfeEjXXJcOAv4SWGvXM/view?usp=sharing"
-				>Warcraft III TFT Client + WC3Loader + AHT Hotkeys</a
+				target="_blank"
+				rel="noopener noreferrer"
 			>
-		</li>
-	</ul>
+				Download client
+			</Button>
+		</CardFooter>
+	</Card>
 
-	<h2>If you have a copy of <strong>Warcraft III</strong> in your computer</h2>
-	
+	<Card>
+		<CardHeader>
+			<CardTitle>If you already have Warcraft III installed</CardTitle>
+		</CardHeader>
+		<CardContent class="flex flex-col gap-2 text-sm text-foreground">
+			<!-- placeholder steps — replace with real gateway/realm connection details -->
+			<p>1. Install <strong>Warcraft III Loader</strong>.</p>
+			<p>
+				2. Configure your <strong>BNET Gateway</strong> to point to the Binig.NET server address.
+			</p>
+			<p>3. Launch Warcraft III through WC3Loader and log in to play.</p>
+		</CardContent>
+	</Card>
 </div>
