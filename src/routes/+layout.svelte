@@ -1,53 +1,16 @@
-<script>
+<script lang="ts">
 	import Header from './Header.svelte';
-	// import './styles.css';
+	import '../app.css';
 </script>
 
-<div class="app">
+<div class="flex min-h-screen flex-col">
 	<Header />
 
-	<main>
+	<main class="mx-auto w-full max-w-4xl flex-1 px-4 py-8">
 		<slot />
 	</main>
 
-	<footer>
-		<p>All rights reserved &copy; BINIG.NET 2024</p>
+	<footer class="border-t border-border px-4 py-4 text-center text-xs text-muted-foreground">
+		<p>All rights reserved &copy; BINIG.NET {new Date().getFullYear()}</p>
 	</footer>
 </div>
-
-<style>
-	.app {
-		display: flex;
-		flex-direction: column;
-		min-height: 97.5vh;
-	}
-
-	main {
-		flex: 1;
-		display: flex;
-		flex-direction: column;
-		padding: 1rem;
-		width: 100%;
-		max-width: 64rem;
-		margin: 0 auto;
-		box-sizing: border-box;
-	}
-
-	footer {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		padding: 0px 12px;
-	}
-
-	footer a {
-		font-weight: bold;
-	}
-
-	@media (min-width: 480px) {
-		footer {
-			padding: 12px 0;
-		}
-	}
-</style>

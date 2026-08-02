@@ -1,127 +1,36 @@
-<script>
+<script lang="ts">
 	import { page } from '$app/stores';
 	import { base } from '$app/paths';
-	import logo from '$lib/images/svelte-logo.svg';
-	import github from '$lib/images/github.svg';
+	import crest from '$lib/images/crest.svg';
+	import ThemeToggle from '$lib/components/ThemeToggle.svelte';
+
+	const links = [
+		{ href: `${base}/`, label: 'binig.NET' },
+		{ href: `${base}/download`, label: 'Download' },
+		{ href: `${base}/installation`, label: 'Installation' },
+		{ href: `${base}/about`, label: 'About' }
+	];
 </script>
 
-<header>
-	<div class="corner">
-		<!-- <a href="https://kit.svelte.dev">
-			<img src={logo} alt="SvelteKit" />
-		</a> -->
-	</div>
+<header class="bg-texture flex items-center justify-between border-b-2 border-border px-4 py-3">
+	<a href="{base}/" class="flex h-8 w-8 items-center justify-center">
+		<img src={crest} alt="Binig.NET" class="h-8 w-8" />
+	</a>
 
 	<nav>
-		<ul>
-			<li aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
-				<a href="{base}/">binig.NET</a>
-			</li>
-			<li aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
-				<a href="{base}/download">Download</a>
-			</li>
-			<li aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
-				<a href="{base}/installation">Installation</a>
-			</li>
-			<li aria-current={$page.url.pathname === '/about' ? 'page' : undefined}>
-				<a href="{base}/about">About</a>
-			</li>
+		<ul class="flex items-center gap-1">
+			{#each links as link}
+				<li aria-current={$page.url.pathname === link.href ? 'page' : undefined}>
+					<a
+						href={link.href}
+						class="font-fantasy relative px-3 py-2 text-xs font-semibold tracking-widest text-foreground uppercase transition hover:text-primary aria-[current=page]:text-primary"
+					>
+						{link.label}
+					</a>
+				</li>
+			{/each}
 		</ul>
 	</nav>
 
-	<div class="corner">
-		<!-- <a href="https://github.com/sveltejs/kit">
-			<img src={github} alt="GitHub" />
-		</a> -->
-	</div>
+	<ThemeToggle />
 </header>
-
-<style>
-	header {
-		display: flex;
-		justify-content: space-between;
-	}
-
-	.corner {
-		width: 3em;
-		height: 3em;
-	}
-
-	.corner a {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 100%;
-		height: 100%;
-	}
-
-	.corner img {
-		width: 2em;
-		height: 2em;
-		object-fit: contain;
-	}
-
-	nav {
-		display: flex;
-		justify-content: center;
-		--background: rgba(255, 255, 255, 0.7);
-	}
-
-	svg {
-		width: 2em;
-		height: 3em;
-		display: block;
-	}
-
-	path {
-		fill: var(--background);
-	}
-
-	ul {
-		position: relative;
-		padding: 0;
-		margin: 0;
-		height: 3em;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		list-style: none;
-		background: var(--background);
-		background-size: contain;
-	}
-
-	li {
-		position: relative;
-		height: 100%;
-	}
-
-	li[aria-current='page']::before {
-		--size: 6px;
-		content: '';
-		width: 0;
-		height: 0;
-		position: absolute;
-		top: 0;
-		left: calc(50% - var(--size));
-		border: var(--size) solid transparent;
-		border-top: var(--size) solid var(--color-theme-1);
-	}
-
-	nav a {
-		display: flex;
-		height: 100%;
-		align-items: center;
-		padding: 0 0.5rem;
-		color: var(--color-text);
-		font-weight: 700;
-		font-size: 0.8rem;
-		text-transform: uppercase;
-		letter-spacing: 0.1em;
-		text-decoration: none;
-		transition: color 0.2s linear;
-	}
-
-	a:hover {
-		color: var(--color-theme-1);
-	}
-</style>

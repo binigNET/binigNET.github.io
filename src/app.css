@@ -1,0 +1,104 @@
+@import 'tailwindcss';
+@import '@fontsource/cinzel';
+
+:root[data-theme='dark'] {
+	--bg: #17130f;
+	--bg-elevated: #211a13;
+	--fg: #ece1c8;
+	--muted-fg: #a3927a;
+	--border: #6b4f2a;
+	--primary: #d9a441;
+	--primary-fg: #1a140d;
+}
+
+:root[data-theme='light'] {
+	--bg: #f2e6c9;
+	--bg-elevated: #fbf3e0;
+	--fg: #2b2115;
+	--muted-fg: #6b5b40;
+	--border: #b08d3f;
+	--primary: #9c6b1f;
+	--primary-fg: #fbf3e0;
+}
+
+:root {
+	--rarity-common: #9d9d9d;
+	--rarity-uncommon: #1eff00;
+	--rarity-rare: #0070dd;
+	--rarity-epic: #a335ee;
+	--rarity-legendary: #ff8000;
+}
+
+@theme {
+	--color-background: var(--bg);
+	--color-background-elevated: var(--bg-elevated);
+	--color-foreground: var(--fg);
+	--color-muted-foreground: var(--muted-fg);
+	--color-border: var(--border);
+	--color-primary: var(--primary);
+	--color-primary-foreground: var(--primary-fg);
+	--color-rarity-common: var(--rarity-common);
+	--color-rarity-uncommon: var(--rarity-uncommon);
+	--color-rarity-rare: var(--rarity-rare);
+	--color-rarity-epic: var(--rarity-epic);
+	--color-rarity-legendary: var(--rarity-legendary);
+
+	--font-fantasy: 'Cinzel', serif;
+	--font-body: Arial, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+		Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+@layer base {
+	body {
+		@apply bg-background text-foreground font-body min-h-screen;
+	}
+
+	a {
+		@apply text-primary;
+	}
+}
+
+@layer utilities {
+	.bg-texture {
+		background-color: var(--bg-elevated);
+		background-image: radial-gradient(
+				60% 50% at 50% 0%,
+				rgba(255, 255, 255, 0.35) 0%,
+				rgba(255, 255, 255, 0) 100%
+			),
+			repeating-linear-gradient(
+				115deg,
+				rgba(176, 141, 63, 0.06) 0px,
+				rgba(176, 141, 63, 0.06) 2px,
+				transparent 2px,
+				transparent 6px
+			);
+	}
+
+	:root[data-theme='dark'] .bg-texture {
+		background-image: radial-gradient(
+				60% 40% at 50% 0%,
+				rgba(217, 164, 65, 0.08) 0%,
+				rgba(217, 164, 65, 0) 100%
+			),
+			repeating-linear-gradient(
+				115deg,
+				rgba(0, 0, 0, 0.15) 0px,
+				rgba(0, 0, 0, 0.15) 2px,
+				transparent 2px,
+				transparent 6px
+			);
+	}
+
+	.visually-hidden {
+		border: 0;
+		clip: rect(0 0 0 0);
+		height: auto;
+		margin: 0;
+		overflow: hidden;
+		padding: 0;
+		position: absolute;
+		width: 1px;
+		white-space: nowrap;
+	}
+}
