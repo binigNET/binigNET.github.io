@@ -1,4 +1,6 @@
-export type CoreFieldType = 'checkbox' | 'number' | 'text' | 'select';
+import { toDisplayHotkey, toFileHotkey } from '$lib/utils/hotkey';
+
+export type CoreFieldType = 'checkbox' | 'number' | 'text' | 'select' | 'hotkey';
 
 export interface CoreField {
 	key: string;
@@ -39,7 +41,7 @@ export function createDefaultFormState(
 	const core: Record<string, string> = {};
 	for (const section of sections) {
 		for (const field of section.fields) {
-			core[field.key] = field.default;
+			core[field.key] = field.type === 'hotkey' ? toDisplayHotkey(field.default) : field.default;
 		}
 	}
 
@@ -130,7 +132,7 @@ export function applyParsedToFormState(
 		for (const field of section.fields) {
 			const value = parsed.core[field.key];
 			if (value !== undefined) {
-				state.core[field.key] = value;
+				state.core[field.key] = field.type === 'hotkey' ? toDisplayHotkey(value) : value;
 			}
 		}
 	}
@@ -157,7 +159,10 @@ export function serializeConfigLod(
 	const coreValues = new Map<string, string>();
 	for (const section of sections) {
 		for (const field of section.fields) {
-			coreValues.set(field.key, state.core[field.key] ?? field.default);
+			const display =
+				state.core[field.key] ??
+				(field.type === 'hotkey' ? toDisplayHotkey(field.default) : field.default);
+			coreValues.set(field.key, field.type === 'hotkey' ? toFileHotkey(display) : display);
 		}
 	}
 

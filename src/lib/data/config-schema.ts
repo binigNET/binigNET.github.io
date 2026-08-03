@@ -5,80 +5,85 @@ export const coreSections: CoreSection[] = [
 		id: 'HOTKEYS',
 		title: 'Hotkeys',
 		description:
-			'Use Alt/Shift/Ctrl modifiers like "ShiftQ" or "CtrlW". Leave blank to disable. Special hotkeys can be entered as hex (0x70 = F1, 0x71 = F2, etc).',
+			'Enter keys in friendly form, e.g. "Q", "F2", or with a modifier: "AltQ", "ShiftF2". Leave blank to disable. Written to the config file in the game\'s hex format automatically.',
 		fields: [
-			{ key: 'SkillSlot1', label: 'Skill Slot 1', type: 'text', default: '' },
-			{ key: 'SkillSlot2', label: 'Skill Slot 2', type: 'text', default: '' },
-			{ key: 'SkillSlot3', label: 'Skill Slot 3', type: 'text', default: '' },
-			{ key: 'SkillSlot4', label: 'Skill Slot 4', type: 'text', default: '' },
+			{ key: 'SkillSlot1', label: 'Skill Slot 1', type: 'hotkey', default: '' },
+			{ key: 'SkillSlot2', label: 'Skill Slot 2', type: 'hotkey', default: '' },
+			{ key: 'SkillSlot3', label: 'Skill Slot 3', type: 'hotkey', default: '' },
+			{ key: 'SkillSlot4', label: 'Skill Slot 4', type: 'hotkey', default: '' },
 			{
 				key: 'SkillSlot5',
 				label: 'Skill Slot 5',
-				type: 'text',
+				type: 'hotkey',
 				default: '',
 				hint: 'Also used to learn "Attribute bonus" in the hero skills menu.'
 			},
-			{ key: 'SkillSlot6', label: 'Skill Slot 6', type: 'text', default: '' },
-			{ key: 'ASkillSlot1', label: 'Autocast Skill Slot 1', type: 'text', default: '' },
-			{ key: 'ASkillSlot2', label: 'Autocast Skill Slot 2', type: 'text', default: '' },
-			{ key: 'ASkillSlot3', label: 'Autocast Skill Slot 3', type: 'text', default: '' },
-			{ key: 'ASkillSlot4', label: 'Autocast Skill Slot 4', type: 'text', default: '' },
-			{ key: 'ASkillSlot5', label: 'Autocast Skill Slot 5', type: 'text', default: '' },
-			{ key: 'ASkillSlot6', label: 'Autocast Skill Slot 6', type: 'text', default: '' },
-			{ key: 'BindMove', label: 'Rebind: Move', type: 'text', default: '' },
-			{ key: 'BindStop', label: 'Rebind: Stop', type: 'text', default: '' },
-			{ key: 'BindHold', label: 'Rebind: Hold Position', type: 'text', default: '' },
-			{ key: 'BindAttack', label: 'Rebind: Attack', type: 'text', default: '' },
-			{ key: 'BindPatrol', label: 'Rebind: Patrol', type: 'text', default: '' },
-			{ key: 'BindOpenHeroSkills', label: 'Rebind: Open Hero Skills', type: 'text', default: '' },
+			{ key: 'SkillSlot6', label: 'Skill Slot 6', type: 'hotkey', default: '' },
+			{ key: 'ASkillSlot1', label: 'Autocast Skill Slot 1', type: 'hotkey', default: '' },
+			{ key: 'ASkillSlot2', label: 'Autocast Skill Slot 2', type: 'hotkey', default: '' },
+			{ key: 'ASkillSlot3', label: 'Autocast Skill Slot 3', type: 'hotkey', default: '' },
+			{ key: 'ASkillSlot4', label: 'Autocast Skill Slot 4', type: 'hotkey', default: '' },
+			{ key: 'ASkillSlot5', label: 'Autocast Skill Slot 5', type: 'hotkey', default: '' },
+			{ key: 'ASkillSlot6', label: 'Autocast Skill Slot 6', type: 'hotkey', default: '' },
+			{ key: 'BindMove', label: 'Rebind: Move', type: 'hotkey', default: '' },
+			{ key: 'BindStop', label: 'Rebind: Stop', type: 'hotkey', default: '' },
+			{ key: 'BindHold', label: 'Rebind: Hold Position', type: 'hotkey', default: '' },
+			{ key: 'BindAttack', label: 'Rebind: Attack', type: 'hotkey', default: '' },
+			{ key: 'BindPatrol', label: 'Rebind: Patrol', type: 'hotkey', default: '' },
+			{
+				key: 'BindOpenHeroSkills',
+				label: 'Rebind: Open Hero Skills',
+				type: 'hotkey',
+				default: ''
+			},
 			{
 				key: 'RealPatrol',
 				label: 'Patrol Hotkey',
-				type: 'text',
+				type: 'hotkey',
 				default: 'P',
 				hint: 'Only a single hotkey allowed.'
 			},
 			{
 				key: 'RealStop',
 				label: 'Stop Hotkey',
-				type: 'text',
+				type: 'hotkey',
 				default: 'S',
 				hint: 'Only a single hotkey allowed.'
 			},
 			{
 				key: 'RealHold',
 				label: 'Hold Hotkey',
-				type: 'text',
+				type: 'hotkey',
 				default: 'H',
 				hint: 'Only a single hotkey allowed.'
 			},
 			{
 				key: 'RealMove',
 				label: 'Move Hotkey',
-				type: 'text',
+				type: 'hotkey',
 				default: 'M',
 				hint: 'Only a single hotkey allowed.'
 			},
-			{ key: 'ItemSlot1', label: 'Item Slot 1 (top-left)', type: 'text', default: '' },
-			{ key: 'ItemSlot2', label: 'Item Slot 2 (top-right)', type: 'text', default: '' },
-			{ key: 'ItemSlot3', label: 'Item Slot 3 (middle-left)', type: 'text', default: '' },
-			{ key: 'ItemSlot4', label: 'Item Slot 4 (middle-right)', type: 'text', default: '' },
-			{ key: 'ItemSlot5', label: 'Item Slot 5 (bottom-left)', type: 'text', default: '' },
-			{ key: 'ItemSlot6', label: 'Item Slot 6 (bottom-right)', type: 'text', default: '' },
+			{ key: 'ItemSlot1', label: 'Item Slot 1 (top-left)', type: 'hotkey', default: '' },
+			{ key: 'ItemSlot2', label: 'Item Slot 2 (top-right)', type: 'hotkey', default: '' },
+			{ key: 'ItemSlot3', label: 'Item Slot 3 (middle-left)', type: 'hotkey', default: '' },
+			{ key: 'ItemSlot4', label: 'Item Slot 4 (middle-right)', type: 'hotkey', default: '' },
+			{ key: 'ItemSlot5', label: 'Item Slot 5 (bottom-left)', type: 'hotkey', default: '' },
+			{ key: 'ItemSlot6', label: 'Item Slot 6 (bottom-right)', type: 'hotkey', default: '' },
 			{ key: 'ShopsQWERTY', label: 'QWERTY Shop Hotkeys', type: 'checkbox', default: 'false' },
 			{
 				key: 'DisplayNeutralsSpawnAreaHotkey',
 				label: 'Show Neutral Spawn Area Hotkey',
-				type: 'text',
+				type: 'hotkey',
 				default: '0x12',
-				hint: 'Single key only: space, F1-F12, or 0x-hex.'
+				hint: 'Single key only, no modifiers: e.g. "Space", "F1", or "Alt".'
 			},
 			{
 				key: 'DisplayTowerRangeHotkey',
 				label: 'Show Tower Range Hotkey',
-				type: 'text',
+				type: 'hotkey',
 				default: '0x12',
-				hint: 'Single key only: space, F1-F12, or 0x-hex.'
+				hint: 'Single key only, no modifiers: e.g. "Space", "F1", or "Alt".'
 			}
 		]
 	},

@@ -7,6 +7,7 @@
 	import Button from '$lib/components/ui/Button.svelte';
 	import Checkbox from '$lib/components/ui/Checkbox.svelte';
 	import Field, { inputClass } from '$lib/components/ui/Field.svelte';
+	import HotkeyKey from '$lib/components/ui/HotkeyKey.svelte';
 	import { cn } from '$lib/utils/cn';
 	import configTemplate from '$lib/data/config-template.lod?raw';
 	import { coreSections } from '$lib/data/config-schema';
@@ -24,6 +25,24 @@
 	let showAdvanced = false;
 	let uploadWarnings: string[] = [];
 	let fileInput: HTMLInputElement;
+
+	const hotkeysSection = coreSections.find((s) => s.id === 'HOTKEYS')!;
+	function fieldsByPrefix(prefix: string) {
+		return hotkeysSection.fields.filter((f) => f.key.startsWith(prefix) && /\d+$/.test(f.key));
+	}
+	const skillSlotFields = fieldsByPrefix('SkillSlot').filter(
+		(f) => !f.key.startsWith('ASkillSlot')
+	);
+	const autocastFields = fieldsByPrefix('ASkillSlot');
+	const itemSlotFields = fieldsByPrefix('ItemSlot');
+	const groupedKeys = new Set(
+		[...skillSlotFields, ...autocastFields, ...itemSlotFields].map((f) => f.key)
+	);
+	const hotkeyRestFields = hotkeysSection.fields.filter((f) => !groupedKeys.has(f.key));
+
+	function handleHotkeyKeyInput(key: string, e: Event) {
+		formState.core[key] = (e.currentTarget as HTMLInputElement).value;
+	}
 
 	$: enabledAdvancedCount = countEnabledAdvanced(formState);
 	$: tooManyAdvanced = enabledAdvancedCount > MAX_START_CHAT_STRINGS;
@@ -108,42 +127,124 @@
 					<CardDescription>{section.description}</CardDescription>
 				{/if}
 			</CardHeader>
-			<CardContent class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-				{#each section.fields as field (field.key)}
-					{#if field.type === 'checkbox'}
-						<Checkbox
-							id={field.key}
-							checked={formState.core[field.key] === 'true'}
-							on:change={(e) => handleCheckboxFieldChange(field.key, e)}
+			<CardContent class="flex flex-col gap-4">
+				{#if section.id === 'HOTKEYS'}
+					<div class="flex flex-col gap-1">
+						<p
+							class="font-fantasy text-xs font-semibold tracking-wide text-muted-foreground uppercase"
 						>
-							{field.label}
-						</Checkbox>
-					{:else if field.type === 'select'}
-						<Field label={field.label} id={field.key} hint={field.hint}>
-							<select
-								id={field.key}
-								class={inputClass}
-								value={formState.core[field.key]}
-								on:change={(e) => (formState.core[field.key] = e.currentTarget.value)}
-							>
-								{#each field.options ?? [] as opt}
-									<option value={opt}>{opt === '' ? '(default)' : opt}</option>
-								{/each}
-							</select>
-						</Field>
-					{:else}
-						<Field label={field.label} id={field.key} hint={field.hint}>
-							<input
-								id={field.key}
-								type={field.type === 'number' ? 'number' : 'text'}
-								step={field.step}
-								class={inputClass}
-								value={formState.core[field.key]}
-								on:input={(e) => (formState.core[field.key] = e.currentTarget.value)}
-							/>
-						</Field>
-					{/if}
-				{/each}
+							Skill Slots
+						</p>
+						<div class="flex gap-2">
+							{#each skillSlotFields as field (field.key)}
+								<HotkeyKey
+									id={field.key}
+									value={formState.core[field.key]}
+									cornerLabel={field.key.match(/\d+$/)?.[0]}
+									hint={field.hint}
+									on:input={(e) => handleHotkeyKeyInput(field.key, e)}
+								/>
+							{/each}
+						</div>
+					</div>
+					<div class="flex flex-col gap-1">
+						<p
+							class="font-fantasy text-xs font-semibold tracking-wide text-muted-foreground uppercase"
+						>
+							Autocast Skill Slots
+						</p>
+						<div class="flex gap-2">
+							{#each autocastFields as field (field.key)}
+								<HotkeyKey
+									id={field.key}
+									value={formState.core[field.key]}
+									cornerLabel={field.key.match(/\d+$/)?.[0]}
+									hint={field.hint}
+									on:input={(e) => handleHotkeyKeyInput(field.key, e)}
+								/>
+							{/each}
+						</div>
+					</div>
+					<div class="flex flex-col gap-1">
+						<p
+							class="font-fantasy text-xs font-semibold tracking-wide text-muted-foreground uppercase"
+						>
+							Item Slots
+						</p>
+						<div class="grid w-fit grid-cols-2 gap-2">
+							{#each itemSlotFields as field (field.key)}
+								<HotkeyKey
+									id={field.key}
+									value={formState.core[field.key]}
+									cornerLabel={field.key.match(/\d+$/)?.[0]}
+									hint={field.hint}
+									on:input={(e) => handleHotkeyKeyInput(field.key, e)}
+								/>
+							{/each}
+						</div>
+					</div>
+					<div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+						{#each hotkeyRestFields as field (field.key)}
+							{#if field.type === 'checkbox'}
+								<Checkbox
+									id={field.key}
+									checked={formState.core[field.key] === 'true'}
+									on:change={(e) => handleCheckboxFieldChange(field.key, e)}
+								>
+									{field.label}
+								</Checkbox>
+							{:else}
+								<Field label={field.label} id={field.key} hint={field.hint}>
+									<input
+										id={field.key}
+										type="text"
+										class={inputClass}
+										value={formState.core[field.key]}
+										on:input={(e) => (formState.core[field.key] = e.currentTarget.value)}
+									/>
+								</Field>
+							{/if}
+						{/each}
+					</div>
+				{:else}
+					<div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+						{#each section.fields as field (field.key)}
+							{#if field.type === 'checkbox'}
+								<Checkbox
+									id={field.key}
+									checked={formState.core[field.key] === 'true'}
+									on:change={(e) => handleCheckboxFieldChange(field.key, e)}
+								>
+									{field.label}
+								</Checkbox>
+							{:else if field.type === 'select'}
+								<Field label={field.label} id={field.key} hint={field.hint}>
+									<select
+										id={field.key}
+										class={inputClass}
+										value={formState.core[field.key]}
+										on:change={(e) => (formState.core[field.key] = e.currentTarget.value)}
+									>
+										{#each field.options ?? [] as opt}
+											<option value={opt}>{opt === '' ? '(default)' : opt}</option>
+										{/each}
+									</select>
+								</Field>
+							{:else}
+								<Field label={field.label} id={field.key} hint={field.hint}>
+									<input
+										id={field.key}
+										type={field.type === 'number' ? 'number' : 'text'}
+										step={field.step}
+										class={inputClass}
+										value={formState.core[field.key]}
+										on:input={(e) => (formState.core[field.key] = e.currentTarget.value)}
+									/>
+								</Field>
+							{/if}
+						{/each}
+					</div>
+				{/if}
 			</CardContent>
 		</Card>
 	{/each}
