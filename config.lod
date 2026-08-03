@@ -1,0 +1,111 @@
+# Visit http://d1stats.ru/configdota/ for details
+[HOTKEYS]
+#You can use Alt, Shift and Ctrl modifiers like "ShiftQ" for Shift+Q or "CtrlW" for Ctrl+W. Leave empty if you don't want to use them.
+#Binded keys are active in menus and able to override WC3 hotkeys
+#You can chose special hotkeys from the list here https://msdn.microsoft.com/en-us/library/windows/desktop/dd375731(v=vs.85).aspx
+#To use special hotkeys enter them as 0x (hex representation), f.i. 0x70 for F1, 0x71 for F2, shift0x71 for Shift+F2, and so on
+#Skill slots 5 and 6 - the one in the middle above normal skills
+#Command panel
+SkillSlot1=
+SkillSlot2=
+SkillSlot3=
+SkillSlot4=
+#SkillSlot5 can also be used to learn "Attribute bonus" inside hero skills menu
+SkillSlot5=
+SkillSlot6=
+#Autocasts
+ASkillSlot1=
+ASkillSlot2=
+ASkillSlot3=
+ASkillSlot4=
+ASkillSlot5=
+ASkillSlot6=
+#Full panel rebinding
+#Use this in case if you wanna rebind default buttons
+BindMove=
+BindStop=
+BindHold=
+BindAttack=
+BindPatrol=
+BindOpenHeroSkills=
+#REAL hotkeys for issuing primary orders, they aren't binded to any visible button but usable in-game. ONLY A SINGLE HOTKEY ALLOWED
+RealPatrol=P
+RealStop=S
+RealHold=H
+RealMove=M
+#Inventory
+#Items declaration goes as 1, 2 for the top row, 3, 4 for the middle row, and 5, 6 for the bottom row
+ItemSlot1=
+ItemSlot2=
+ItemSlot3=
+ItemSlot4=
+ItemSlot5=
+ItemSlot6=
+#Shops
+ShopsQWERTY=false
+#Other
+#Display neutral spawn (block) rectangle, can only use single key (no combinations allowed), space or F1-F12, 0x12 for Alt.
+DisplayNeutralsSpawnAreaHotkey=0x12
+DisplayTowerRangeHotkey=0x12
+[GAMEOPTIONS]
+MaxFPS=60
+AutoFPSLimit=false
+LockMouseAtWindow=false
+AutoselectHero=true
+DotA2HPBars=false
+DisplayManabars=true
+WideScreen=false
+TeleportationCanOnlyBeStoppedSoft=true
+TeleportationCanOnlyBeStopped=false
+AutoselectSummonedUnitsRadius=2500
+CloseWC3EveryGame=false
+DoubleClickHelperEnabled=false
+[VISUALS]
+Weather=
+FogDensity=192
+AlwaysDisplayRangeMarkers=false
+AlwaysDisplayHPRegen=false
+SameSelectionCircleForEveryone=false
+AdvancedTooltips=true
+DisplayRegeneration=true
+CustomFPSInfo=false
+ChatMessageDuration=10.0
+EscClearsChat=true
+EscClearsPlayersChat=true
+StaticSkillsLayout=true
+#GoodMinimap=true
+#ProperColorsForCreeps=false
+AlliesAlwaysGreen=false
+BetterFPS=false
+DisableDefaultSpace=false
+DisableDefaultMouseWheel=false
+[ONSTART]
+StartChatString2=
+StartChatString3=
+StartChatString4=
+StartChatString5=
+StartChatString6=
+StartChatString7=
+StartChatString8=
+StartChatString9=
+StartChatString10=
+StartChatString11=
+StartChatString12=
+StartChatString13=
+StartChatString14=
+StartChatString15=
+StartChatString16=
+StartChatString17=
+StartChatString18=
+StartChatString19=
+StartChatString20=
+StartChatString21=
+#Visit https://docs.google.com/spreadsheets/d/1mcO_6KYRAORNrtK_6N9Ud1fCF1Gs8bW1As3pLxIGVF4/edit#gid=2052982838
+# for the full list of chat commands available
+#Disable help == -dh
+#Mouse (right click) Deny == -md
+#Autoattack toggling == -aat
+#Double click for self-cast == -dch
+#Auto-select summons == -es
+#Fog density on the minimap = -fd ##
+#Camera settings == -cam ##
