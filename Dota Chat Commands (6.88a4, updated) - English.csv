@@ -1,0 +1,304 @@
+,,,
+OPTIONS,,,"game customization, it local changes, affecting only you"
+-enablehelp #,-eh #,,return help-parameter to default; optional parameter # - number of ally
+-disablehelp #,-dh #,,disallowing help from sertain abilities; optional parameter # - number of ally
+-enableselection,-es,,"control selection helper has been enabled, your summons and illusions select as soon as appears"
+-disableselection,-ds,,return selection-parameter to default
+-ui,,,hide \ display courier deathtimer
+-iteminfo,-ii,,inherited command display items of your teammates in top-right table
+-md,,,right click deny toggle
+-dch,,DoubleClickHelperEnabled,double click toggle (some abilities and items use onself)
+-aat,,,autoattack toggle
+-autoselect,,AutoselectHero,autoselect primary hero toggle
+-cap,,,clan's tag over creeps head toggle
+-hideheronames,-hhn,,AutoselectHero
+-hpbar,,DotA2HPBars,DotA2HP bars style
+-manabar,,DisplayManabars,manabar toggle
+-ws,,WideScreen,widescreen toggle
+-cam #,,,"camera height to # (1500-3000, 1650 - default, # =1 (1650), # =2 (3300))"
+/hideminimapsignals,,,disable minimap signals from allies
+-lat #,-plat #,,"ingame latency changer, turn off fps limit"
+-fd #,,FogDensity,"fog density, affects minimap, 0-255"
+-showmsg \ -hidemsg,,,Display/hide various ingame messages
+-music ID,,,set musical theme (ID list in the and of table)
+-weather ID,,Weather,custom weather
+-water R G B,,,cutom watercolor
+-mute,,,mute killstreak announcer
+-mute #,,,
+-unmute #,,,
+-names #,,,toggle naming of players; 1 = numbers; 2 = hero names; any other = default
+-autofps,,AutoFPSLimit,"autocorrection of FPS, toggle"
+-maxfps #,,MaxFPS,MaxFPS
+-window,,LockMouseAtWindow,keep mouse in game window if played in windowed mode
+-light 0-5,,,"light from 0 - Felwood, 1 - Underground, 2 - Lordaeron,3 - Dungeon, 4 - Dalaran, 5 - Ashenvale"
+-aoe,,,tower radius and neutrals spawn area toggle
+/fps,,,display / hide fps and memory using
+-nospace,,DisableDefaultSpace,disable camera jumping on Space key
+-nowheel,,DisableDefaultMouseWheel,disable camera moving on mouse wheel
+-nmm,,,old style of minimap teamcolors
+-tk,,,tavern select with arrow-keys (auto off after pick stage)
+-hud,,,hero portraits at the top of screen
+-tips,,,off\on on-death tips
+-betterfps,,BetterFPS,turn off part of visual effects (and water) for help your piece of shit
+-betterfps2,,BetterFPS,toggles ubersplats
+-bind reset,,,reload all config-based hotkeys once again
+-bindissue #,,,fix any kind of issues regarding innate map's keybinding via config
+-green,,AlliesAlwaysGreen,allies pictograms will be green in 2 of 3 of minimap color schemes
+-doublef,,,toggle F1-F5 work twice
+-mute me \ -unmute me,,,effectively prevents your message from reaching allies or enemies chat
+-unshare #,-us #,,remove shared control from player 1-5
+/squelch NAME,,,hide chat msgs from NAME
+/ignore NAME,,,analog /squelch
+-clear,-c,,
+,,,
+COMMANDS,,,other class of msgs that allow you control gameplay actions or obtain additional information
+press down F7,,,open statistic table
+key Esc,,,-clear analog
+-random,,,
+-random agi,,,
+-random int,,,
+-random str,,,
+-gameinfo,,,
+-unstuck,,,
+-matchup,-ma,,
+-movespeed,-ms \ -msa,,
+-apm,,,
+-bonus,,,bonus golg information
+-creepstats,-cs,,
+-csa,,,
+-invokelist,-il,,
+-afk,,,
+-kickafk #,,,
+-si # #,,,swap items in slots # and # (useful for aegis or aghanim)
+-sleep,,,
+-roll \ -rickroll \ -rolloff \ -rollon \ -rollhero \ -rh,,,
+-swap # \ -swapall \ -swaphero \ -swapcancel,,,
+-repick,,,
+-switch accept \ -ok \ -no,,,
+-unlock,,,
+-gg \ !ff,,,vote for forfeit
+-deathon \ -deathoff,-don \ -doff,,
+-st,,,
+-sta,,,Global -st throught all your teammates
+-t,,,Displays current time from the start of the map
+-calm,,,trash
+-courier,,,"special icon for main courier (priority: my flying, any my, flying shared, any shared)"
+There are no hero limit (-nhl) in single and Secret Shops on fountains.,,,
+TEST CMDS,,,They only works if there's only one player ingame (means even in multiplayer which was start with 1 real player) or -test command been used in multiplayer game
+-refresh,-r,,"Refresh cooldowns, HP/MP of selected units  (here and forward if something affects unit it means it affects all selected unit at the moment command been sent)"
+-neutrals,-n,,Spawn neutrals
+-b,,,Add a global blink to unit
+-fog,,,Toggle fog of war
+-o #,,,"Set selected unit owner to #, 1-5 for sentinels, 7-11 for scourge, make sure to check multiboard to see if your hero didn't disappear. This command may chose main hero, use it with your own ID (blue = 1, -o 1)"
+-control,-c,,"share/unshare control, affects all players"
+-spawnoff \ -spawnon,-so \ ...,,Toggle creeps spawn
+-spawncreeps,-sc,,spawn creeps wave
+-respawn,-res,,Immediately respawn your main hero
+-dummy, -d \ -d #,,"Create enemy dummy hero at the middle of the map, # allows to create # dummies at once (all melee)"
+-str # \ -agi # \ -int # ,,,change unit's STR/AGI/INT value (can be negative)
+-setms #,,,Setup base MS for unit
+-lvlup #,-l \ -l #,,Add levels to unit
+-gold #,-g \ -g #,,Add gold to yourself
+-si,,,Displays every casted ability ID (useful for getting IDs for custom keys)
+-powerup,-runes,,Create all runes at some runespot (random)
+-hp #,,,Set unit's hp to #
+-mp #,,,Set unit's mp to #
+-daoe,,,shows spell aoe
+-p,,,creating unit for dmg testing at the center of map
+-dmg,,,show red number of dmg
+-fulldmg,,,show dmg messages (work only with -dmg on)
+-as ID SOUND_ID,,,adds SOUND_ID to ID (pro)
+-roshan,,,Spawn Roshan
+-trees,,,Restore all trees
+-kill,-k,,Kill unit 
+-killscourge \ -killsent,,,Kill creeps respectively
+-killall,-ka,,Kill creeps (all)
+-time #,,,Set current time of ingame day
+-killwards,,,Kill all wards
+-et ATTACH PATH,,,"Attach special effect onto unit, using ATTACH as bone and PATH as model"
+-ep PATH,,,Attach special effect to the point where unit stands
+-ed path,,,Create and immediately destroy model at PATH
+-tint R G B A,,,Set unit's RGBA colors
+-xy,,,Displays units XY
+-sxy X Y,,,Set unit XY
+-gi,,,Shows unit's ID
+-au UNIT_ID,,,Create unit UNIT_ID on center of the map
+-abl,,,"show the list of abilities of selected units (ID, Name)"
+-aa ABILITY_ID,,,Add ability to unit
+-ra ABILITY_ID,,,Remove ability from unit
+-ha ABILITY_ID,,,Hide ability
+-scale #,,,Set unit's scale to #
+-ts #,,,Set unit timescale to #
+-aa Aret,,,Restore all skillpoints (wrong interaction with some abilities)
+-souls #,,,Adds Necromastery souls (only SF)
+-sv #,,,Share vision of unit with player #
+-gud,,,Various info about unit
+-path off \ -path on,,,Toggle unit's pathing
+-ru,,, +1 Roshan's upgrade level
+-br,,,Applies Break effect onto unit for 9 secs
+-animb NODE,,,Pro only
+-light TYPE,,,Set day light type (1-5)
+-anim NAME,,,"Play unit's animation # NAME or with the name NAME (0-..., or ""stand"", ""attack"" etc)"
+-remove,,,"Delete unit from the map, dangerous"
+-mis S,,,Change unit's attack missile model path to S
+-sa ID #,,,Set unit's ability ID level to #
+-ga ID,,,Get unit's ability ID level
+-gn ID,,,Get object's ID name
+-ai ID,,,Add item ID to unit (-ai I0AY - aghanim)
+-ar ID,,,Add item ID to unit
+-ip ID,,,Displays if item ID can be pawned
+-or ORDER,,,Pro only
+-noneutrals,,,Disable neutral spawns
+-sh ID,,,Pro only
+-cams,,,Cam settings
+-cu ID,,,spawn ubersplat
+-sum PATH,,,selected unit chage model
+-sft FRAME TEXT,,,Pro only
+-gf FRAME,,,Pro only
+-gs,,,Pro only
+-gt ID CLASS,,,Pro only
+-at #,,,Add unit type # to unit
+-i,,,Pro only
+-path,,,Pro only
+-nerf,,,Pro only
+-cc,,,Pro only
+-tr #,,,"Pro only, (222, 333, 0101, 1231) work only in singleplayer, unstable; 0x1 = cliffs; 0x2 = grid; 0x4 = pathing map; 0x10 = water; 0x40 = polygons; 0x80 = normal textures + fog; 0x8000 = normal textures; 0x2000 = foot traces; some flags are linked, 0x40 unavailabe w/o 0x1 and overlapped by 0x8000 etc "
+,,,
+SMILES (for donation),,,You can see pics of smiles ckicking on ru tab below
+:*,,,
+:d,,,
+<3,,,
+><,,,
+angry,,,
+punoko,,,
+bellissimo,bls,,
+biblethump,bib,,
+boss,,,
+cool,,,
+crab,,,
+cry,,,
+dislike,,,
+drooling,droo,,
+frog,,,
+ggez,,,
+happy,,,
+hmm,,,
+illuminati,ilmt,,
+kappa,,,
+kappapride,kpp,,
+like,,,
+lol,,,
+lul,,,
+mad,,,
+monkas,,,
+peka,,,
+pekagasm,pekag,,
+pogchamp,pgch,,
+rainbow,rnb,,
+rly,,,
+rofl,,,
+sleep,,,
+slow,,,
+smorc,,,
+wut,,,
+yao,,,
+322,,,
+dendi,,,
+,,,
+,,,
+MODES,,,
+bp,Ban phase,,"each player nominate hero, 2-3 nominated hero from each team will be ban. Deprecated, now it's normal AP"
+dl,Duel Mode,,shomnp + courier at start
+ap,All Pick,,
+ar,All Random,,
+cm,Captains Mode,,
+cd,Captains Draft,,
+sd,Single Draft,,
+rd,Random Draft,,
+pm,Pooling Mode,,
+ub,Unban,,
+so,Switch On,,
+zm,Zoom Mode,,
+du,Duplicate Mode,,
+mm,Mirror Match,,
+dm,Death Match,,
+mr,Mode Random,,
+sp,Shuffle Players,,
+sc,Super Creeps,,
+tr,Team Random,,
+nd,No DeathTime,,
+rs,Random Side,,
+sh,Same Hero,,
+vr,Vote Random,,
+rv,Reverse,,
+mi,Mini Heores,,
+fr,Fast Respawn,,
+om,Only Mid,,
+nm,No Mid,,
+nt,No Top,,
+nb,No Bot,,
+ns,No Swap,,
+nr,No Repick,,
+np,No Powerups,,
+nc,No Camera settings,,
+mo,Melee Only,,
+ro,Range Only,,
+aa,All Agility,,
+ai,All Intelligence,,
+as,All Strength,,
+cp,Capture Point,,
+tt,Tag Team,,
+em,Easy Mode,,absent
+,,,
+-lives #,,,add command for deadmatch
+-wtf,,,"no cooldown, no mana spent"
+-test,,,turn on testmod in multiplayer game
+-noherolimit,-nhl,,default turned on in singleplayer game
+,,,
+-weather snow,,,
+-weather rain,,,
+-weather off,,,
+-weather random,,,
+-weather wind,,,
+-weather moonlight,,,
+,,,
+-music,,,display help for -music
+-music off,,,
+-music random,,,
+-music nightelf1,,,Sound\\Music\\mp3Music\\NightElf1.mp3
+-music nightelf2,,,Sound\\Music\\mp3Music\\NightElf2.mp3
+-music nightelf3,,,Sound\\Music\\mp3Music\\NightElf3.mp3
+-music human1,,,Sound\\Music\\mp3Music\\Human1.mp3
+-music human2,,,Sound\\Music\\mp3Music\\Human2.mp3
+-music human3,,,Sound\\Music\\mp3Music\\Human3.mp3
+-music orc1,,,Sound\\Music\\mp3Music\\Orc1.mp3
+-music orc2,,,Sound\\Music\\mp3Music\\Orc2.mp3
+-music orc3,,,Sound\\Music\\mp3Music\\Orc3.mp3
+-music undead1,,,Sound\\Music\\mp3Music\\Undead1.mp3
+-music undead2,,,Sound\\Music\\mp3Music\\Undead2.mp3
+-music undead3,,,Sound\\Music\\mp3Music\\Undead3.mp3
+-music other1,,,Sound\\Music\\mp3Music\\BloodElfTheme.mp3
+-music other2,,,Sound\\Music\\mp3Music\\DarkAgents.mp3
+-music other3,,,Sound\\Music\\mp3Music\\TragicConfrontation.mp3
+-music other4,,,Sound\\Music\\mp3Music\\SadMystery.mp3
+-music other5,,,Sound\\Music\\mp3Music\\IllidansTheme.mp3
+-music other6,,,Sound\\Music\\mp3Music\\Tension.mp3
+-music other7,,,Sound\\Music\\mp3Music\\ArthasTheme.mp3
+-music other8,,,Sound\\Music\\mp3Music\\NightElfDefeat.mp3
+-music other9,,,Sound\\Music\\mp3Music\\NightElfVictory.mp3
+-music special,,,Sound\\Music\\mp3Music\\PH1.mp3
+,,,Comradeship.mp3
+,,,Credits.mp3
+,,,DarkVictory.mp3
+,,,Doom.mp3
+,,,LichKingTheme.mp3
+,,,Mainscreen.mp3
+,,,NagaTheme.mp3
+,,,HumanX1.mp3
+,,,NightElfX1.mp3
+,,,OrcX1.mp3
+,,,UndeadX1.mp3
+,,,PursuitTheme.mp3
+,,,War2IntroMusic.mp3
+,,,War3XMainScreen.mp3
+,,,OrcTheme.mp3
