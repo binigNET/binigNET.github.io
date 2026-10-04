@@ -9,6 +9,7 @@
 		{ href: `${base}/download`, label: 'Download' },
 		{ href: `${base}/installation`, label: 'Installation' },
 		{ href: `${base}/config`, label: 'Config' },
+		{ href: `${base}/commands`, label: 'Commands' },
 		{ href: `${base}/about`, label: 'About' }
 	];
 </script>
